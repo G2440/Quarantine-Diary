@@ -1,0 +1,33 @@
+
+
+<%- include ('partials/header') -%>
+
+
+
+
+<% diaries.forEach(function(diary){ %>
+
+    <div class="row">
+        <div class="col-3"><img src="abs.jpg" style="height: 500px; width: 500px;"alt=""></div>
+<div class="card col-6" style="background-color: #FFFFCC		;"  >
+    <div class="card-header">
+      <%=diary.title%>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%=diary.created%></p>
+      <p><%= diary.content%> <a href="/diary/<%=diary._id%>">Read More</a></p>
+      <img src="<%=diary.pic%>" alt="" style="height: 50px; width: 50px;" >
+    </div>
+    <div class="card-footer text-muted">
+      <%=diary.author%>
+    </div>
+  </div>
+  <div class="col-3">
+    <img src="abs.jpg" alt="" style="height: 500px; width: 500px;">
+  </div>
+</div>
+
+<% }) %>
+
+
+<%- include ('partials/footer') -%>
