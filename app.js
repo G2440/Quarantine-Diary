@@ -21,15 +21,15 @@ var diarySchema = new mongoose.Schema({
     var diary = mongoose.model("Diary",diarySchema);
 
 
-// app.get("/",function(req,res){
-//     res.locals.title = "HOME";
-//     diary.find({},function(err,diaries){
-//         if(err)
-//         console.log(err);
-//         else
-//         res.render("index",{ALLdiaries : diaries});
-//     });
-// });
+app.get("*",function(req,res){
+    res.locals.title = "HOME";
+    diary.find({},function(err,diaries){
+        if(err)
+        console.log(err);
+        else
+        res.render("index",{ALLdiaries : diaries});
+    });
+});
 
 app.get("/diary",function(req,res){
     res.locals.title = "HOME";
