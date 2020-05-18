@@ -18,3 +18,8 @@
     margin-left: 0;
     margin-right: 0;
 }
+
+.show.jumbotron{
+    margin : 0px;
+    padding : 0px;
+}

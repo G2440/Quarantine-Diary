@@ -1,31 +1,37 @@
 <%- include ('partials/header') -%>
+<br>
+<h1 class="text-center" style="font-family: 'UnifrakturCook';font-size: 52px; text-decoration: overline; ">Edit Your Page</h1>
 
-<div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
-</div>
-<div class="container">
+<br><br>
+
     <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6 card text-center">
-    <form method="POST" action="/diary/<%=diary._id%>?_method=PUT">
-    <label>Title</label>
-      <input type="text" class="form-control" name="diary[title]" value = "<%=diary.title%>" >
+        <div class="col-1"></div>
+        <div class="col-10 card text-center">
+    <form method="POST" action="/diary/<%=diary._id%>?_method=PUT" id="editpage" >
+    <label style="font-family: 'Unica One';font-size: 32px;">Title</label>
+    <br>
+    <input  type="text" style="font-family: 'Black And White Picture';font-size: 42px;" class="form-control" name="diary[title]" value = "<%=diary.title%>" >
+    <br>
+      <label style="font-family: 'Unica One';font-size: 32px;">Content</label>
+      <br>
     
-      <label>Content</label>
-      <input type="text" class="form-control" name="diary[content]" value = "<%=diary.content%>" >
-
-        <label>Pic of the Day</label>
+      <textarea style="font-family: 'Butterfly Kids';font-size: 38px;" class="form-control" name="dairy[content]" form="editpage" rows="6" cols="170"  ><%=diary.content%></textarea>
+      
+<br>
+        <label style="font-family: 'Unica One';font-size: 32px;">Pic of the Day</label>
+        <br>
+        <br>
         <input type="text" class="form-control" name="diary[pic]" value= "<%=diary.pic%>" > 
-        <label>Who are you?</label>
-        <input type="text" class="form-control" name="diary[author]" value = "<%=diary.author%>">  
-
+       <br>
+        <label  style="font-family: 'Unica One';font-size: 32px;">Who are you?</label>
+        <br>
+        <input style="font-family: 'Cabin Sketch';font-size: 22px;" type="text" class="form-control" name="diary[author]" value = "<%=diary.author%>">  
+<br>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
-  <div class="col-3"></div>
+  <div class="col-1"></div>
 </div>
 </div>
+<br><br><br><br><br><br><br><br><br><br>
 <%- include ('partials/footer') -%>

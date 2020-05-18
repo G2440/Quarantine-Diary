@@ -1,14 +1,32 @@
 <%- include ('partials/header') -%>
 
-<div class="card mb-3">
-    <img src="<%diary.pic%>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%=diary.title%></h5>
-      <p class="card-text"><%=diary.content%></p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<h1  class="text-center" style="text-decoration: line-through; font-family: 'Black And White Picture';font-size: 62px;" ><%=diary.title%></h1>
+
+
+<div class="container text-center">
+<img src="<%=diary.pic%>"  class="img-fluid rounded border border-danger" alt="Responsive image" style="height: 400px; width: 400px;" >
+</div>
+<div class="container text-center"style="width: 18rem;">
+<h5 class="card text-center border border-success rounded-pill" style="font-family: 'Cabin Sketch';font-size: 22px;" >Pic of the DAY</h5>
+</div>
+
+  
+
       
-    </div>
-  </div>
- 
+<div class="show jumbotron bg-light" > 
+  <p class="lead" style="font-family: 'Butterfly Kids';font-size: 48px;"><%=diary.content%></p>
+  <hr class="my-4">
+  <p style="font-family: 'Cabin Sketch';font-size: 22px;""><%=diary.author%> on <%=diary.date.toDateString()%></p>
+</div> 
+<div class="btn-group" role="group" aria-label="Basic example">
+  <form  action="/diary/<%=diary._id%>/edit">  
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+  <div class="container">   </div>
+  <form  action="/diary/<%=diary._id%>/delete">
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</div>
+
 
 <%- include ('partials/footer') -%>

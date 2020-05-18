@@ -59,9 +59,9 @@ app.post("/diary",function(req,res){
     diary.create(req.body.diary,function(err,newdiary){
     if(err)
     console.log(err);
-    else{
+    else
     res.redirect("/diary");
-}
+
 })
 });
 app.get("/diary/:id/edit",function(req,res){
@@ -80,7 +80,7 @@ app.put("/diary/:id",function(req,res){
         res.redirect("show");
         else{
         var URL = "/diary/" + req.params.id;    
-        res.render(URL);
+        res.redirect(URL);
         }
     });
 });
@@ -102,7 +102,7 @@ app.delete("/diary/:id",function(req,res){
         else 
         res.redirect("/diary");
     })
-})
+});
 
 app.listen(8080,function(){
     console.log("STARTED -_-");
