@@ -1,15 +1,5 @@
 <%- include ('partials/header') -%>
-<script> 
-      
-  // JavaScript code to change 
-  // the content of <textarea> 
-  function changeContent(){ 
-    console.log("HELLO");
-      var x = document.getElementById('textArea'); 
-      diary[content] = x.value;
-      console.log(x.value); 
-  } 
-</script> 
+
 <br>
 <h1 class="text-center" style="font-family: 'UnifrakturCook';font-size: 52px; text-decoration: overline; ">Write Your Page</h1>
 
@@ -18,7 +8,7 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10 card text-center">
-    <form method="POST" action="/diary" id="newpage" >
+    <form method="POST" action="/diary" >
     <label style="font-family: 'Unica One';font-size: 32px;">Title</label>
     <br>
     <input  type="text" style="font-family: 'Black And White Picture';font-size: 42px;" class="form-control" name="diary[title]">
@@ -26,9 +16,9 @@
       <label style="font-family: 'Unica One';font-size: 32px;">Content</label>
       <br>
     
-      <textarea style="font-family: 'Butterfly Kids';font-size: 38px;"   class="form-control" form="newpage" rows="6" cols="170" id="textArea" ></textarea>
-<br>    
-        <% changeContent() %>  
+     <input class="form-control"  type="text"  style="font-family: 'Butterfly Kids';font-size: 38px;" name="diary[content]">     
+      <br>    
+        
         <label style="font-family: 'Unica One';font-size: 32px;">Pic of the Day</label>
         <br>
         <br>
@@ -47,3 +37,4 @@
 <br><br><br><br><br><br><br><br><br><br>
 
 <%- include ('partials/footer') -%>
+ 

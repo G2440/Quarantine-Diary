@@ -1,17 +1,18 @@
 <%- include ('partials/header') -%>
 
-<div class="card mb-3">
+<div class="jumbotron bg-light ">
+  <h1 class="display-4">ARE YOU SURE ?</h1>
+  <p class="lead">This page once deleted cannot be recovered!!</p>
+  <hr class="my-4">
+  <p class="lead">
+    <div class="btn-group" role="group" aria-label="Basic example">
     <form action="/diary/<%=diary._id%>?_method=DELETE" method="POST">
-    <img src="<%diary.pic%>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%=diary.title%></h5>
-      <p class="card-text"><%=diary.content%></p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-    <label for=PP"">DELETE</label>
-    <input type="submit" value="PP" >
-</form>
+    <button class="btn btn-danger btn-lg border rounded-pill">Delete Now </button>
+  </form>
+  
+    <a class="btn btn-success btn-lg border rounded-pill" href="/diary/<%=diary._id%>" role="button">Go Back</a>
+  </p>
 </div>
- 
+</div>
 
 <%- include ('partials/footer') -%>

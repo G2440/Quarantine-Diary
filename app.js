@@ -3,7 +3,8 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var methodOverride = require("method-override");
-mongoose.connect("mongodb://localhost/qDiary",{ useNewUrlParser: true,  useUnifiedTopology: true });
+
+mongoose.connect("mongodb+srv://g2440:opennow@cluster0-nrpz0.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true,  useUnifiedTopology: true });
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,7 +27,7 @@ app.get("/",function(req,res){
         if(err)
         console.log(err);
         else
-        res.render("index",{diaries : diaries});
+        res.render("index",{ALLdiaries : diaries});
     });
 });
 
@@ -36,14 +37,23 @@ app.get("/diary",function(req,res){
         if(err)
         console.log(err);
         else
-        res.render("index",{diaries : diaries});
+        res.render("index",{ALLdiaries : diaries});
     });
 });
 app.get("/diary/new",function(req,res){
     res.locals.title = "New Page";
     res.render("new");
 });
-
+app.post("/diary",function(req,res){
+    diary.create(req.body.diary,function(err,newdiary){
+    if(err)
+    console.log(err);
+    else{
+        console.log(req.body.diary);    
+        res.redirect("/diary");
+    }
+})
+});
 app.get("/diary/:id",function(req,res){
     res.locals.title = "Show Page";
     diary.findById(req.params.id,function(err,diary){
@@ -55,15 +65,7 @@ app.get("/diary/:id",function(req,res){
 });
 
 
-app.post("/diary",function(req,res){
-    diary.create(req.body.diary,function(err,newdiary){
-    if(err)
-    console.log(err);
-    else
-    res.redirect("/diary");
 
-})
-});
 app.get("/diary/:id/edit",function(req,res){
     res.locals.title = "EDIT PAGE";
     diary.findById(req.params.id,function(err,data){
@@ -104,6 +106,6 @@ app.delete("/diary/:id",function(req,res){
     })
 });
 
-app.listen(8080,function(){
-    console.log("STARTED -_-");
-})
+app.listen(process.env.PORT,process.env.IP,function(){
+    console.log("STARTED *-*");
+});

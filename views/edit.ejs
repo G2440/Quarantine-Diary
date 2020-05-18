@@ -7,16 +7,15 @@
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10 card text-center">
-    <form method="POST" action="/diary/<%=diary._id%>?_method=PUT" id="editpage" >
+    <form method="POST" action="/diary/<%=diary._id%>?_method=PUT">
     <label style="font-family: 'Unica One';font-size: 32px;">Title</label>
     <br>
     <input  type="text" style="font-family: 'Black And White Picture';font-size: 42px;" class="form-control" name="diary[title]" value = "<%=diary.title%>" >
     <br>
       <label style="font-family: 'Unica One';font-size: 32px;">Content</label>
       <br>
-    
-      <textarea style="font-family: 'Butterfly Kids';font-size: 38px;" class="form-control" name="dairy[content]" form="editpage" rows="6" cols="170"  ><%=diary.content%></textarea>
-      
+
+     <input class="form-control"  type="text"  style="font-family: 'Butterfly Kids';font-size: 38px;" name="diary[content]" value="<%=diary.content%>">     
 <br>
         <label style="font-family: 'Unica One';font-size: 32px;">Pic of the Day</label>
         <br>
