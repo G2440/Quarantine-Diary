@@ -17,7 +17,8 @@ var diarySchema = new mongoose.Schema({
     date  : {type : Date , default:Date.now}
 });
 
-var diary = mongoose.model("Diary",diarySchema);
+    var diary = mongoose.model("Diary",diarySchema);
+
 
 app.get("/",function(req,res){
     res.locals.title = "HOME";
@@ -38,6 +39,10 @@ app.get("/diary",function(req,res){
         res.render("index",{diaries : diaries});
     });
 });
+app.get("/diary/new",function(req,res){
+    res.locals.title = "New Page";
+    res.render("new");
+});
 
 app.get("/diary/:id",function(req,res){
     res.locals.title = "Show Page";
@@ -49,19 +54,13 @@ app.get("/diary/:id",function(req,res){
     })
 });
 
-app.get("/diary/new",function(req,res){
-    res.locals.title = "New Page";
-    res.render("new");
-    
-});
+
 app.post("/diary",function(req,res){
-    res.locals.title = "SHOW";
-diary.create(req.body.diary,function(err,newdiary){
+    diary.create(req.body.diary,function(err,newdiary){
     if(err)
     console.log(err);
     else{
-         console.log(req.body.diary); 
-        res.redirect("/diary");
+    res.redirect("/diary");
 }
 })
 });

@@ -1,33 +1,30 @@
-
-
-<%- include ('partials/header') -%>
+ 
+<%- include ('partials/header') -%> 
 
 
 
 
 <% diaries.forEach(function(diary){ %>
 
-    <div class="row">
-        <div class="col-3"><img src="abs.jpg" style="height: 500px; width: 500px;"alt=""></div>
-<div class="card col-6" style="background-color: #FFFFCC		;"  >
-    <div class="card-header">
-      <%=diary.title%>
-    </div>
-    <div class="card-body">
-      <p class="card-text"><%=diary.created%></p>
-      <p><%= diary.content%> <a href="/diary/<%=diary._id%>">Read More</a></p>
-      <img src="<%=diary.pic%>" alt="" style="height: 50px; width: 50px;" >
-    </div>
-    <div class="card-footer text-muted">
-      <%=diary.author%>
+  <div class="row">
+    <img src="abs.jpg" class="index col-4" alt="">
+    <div class="index card col-4" style="max-height: 398px;" >
+    <div class="row no-gutters">
+      <div class="col-md-5">
+        <img src="<%=diary.pic%>" class="card-img"  alt="...">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h3 class="card-title"><%= diary.title%></h5>
+          <br><br> 
+          <p class="card-text"><%=diary.content.substring(0,200)%>.... <a href="/diary/<%=diary._id%>">Read More</a></p>
+          <br><br><br><br>
+          <p class="card-footer"><small class="text-muted"><%=diary.author%> on <%=diary.date.toDateString()%> </small></p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col-3">
-    <img src="abs.jpg" alt="" style="height: 500px; width: 500px;">
-  </div>
+  <img src="abs.jpg" class="index col-4" alt="">
 </div>
-
-<% }) %>
-
-
-<%- include ('partials/footer') -%>
+<% })%>
+<%- include ('partials/footer') -%> 
