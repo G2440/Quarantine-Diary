@@ -21,7 +21,7 @@ var diarySchema = new mongoose.Schema({
     var diary = mongoose.model("Diary",diarySchema);
 
 
-app.get("*",function(req,res){
+app.get("/",function(req,res){
     res.locals.title = "HOME";
     diary.find({},function(err,diaries){
         if(err)
