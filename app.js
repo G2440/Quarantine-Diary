@@ -76,10 +76,11 @@ app.get("/diary/:id/edit",function(req,res){
     })
 });
 app.put("/diary/:id",function(req,res){
-    
+    res.locals.title = "SHOW PAGE";
     diary.findByIdAndUpdate(req.params.id,req.body.diary,function(err,newDiary){
         if(err)
-        res.redirect("show");
+        res.redirect("/show");
+        
         else{
         var URL = "/diary/" + req.params.id;    
         res.redirect(URL);
@@ -106,6 +107,6 @@ app.delete("/diary/:id",function(req,res){
     })
 });
 
-app.listen(process.env.PORT,process.env.IP,function(){
+app.listen(process.env.PORT||8080,process.env.IP,function(){
     console.log("STARTED *-*");
 });
